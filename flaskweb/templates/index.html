@@ -1,0 +1,85 @@
+{% extends 'BasePage.html' %}
+
+{% block Title %}
+首頁
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+{% block js%}
+	
+	<script>
+		$(document).ready(function(){
+			var i=0;
+			var clone =$(".banner .img li").first().clone(); //複製第一張圖片
+			$(".banner .img").append(clone); //將複製的第一張貼到最後面去
+
+			var size=$(".banner .img li").size(); //抓個數
+			/*自動撥放*/
+			//setInterval 會不斷地呼叫函數 , 2秒呼叫一次
+			var t=setInterval(function(){
+				i++;
+				move();
+			},2000); //2000毫秒=2秒撥一次
+
+			function move(){
+				if (i== size){
+					$(".banner .img").css({left:0});
+					i=1;
+				}
+				if (i==-1){
+					$(".banner .img").css({left:-(size -1)*1100});
+					i=size -2;
+				}
+				$(".banner .img").stop().animate({left:-i *1100},1100); /
+			}
+		});
+	</script>
+{% endblock %}
+{% block navbar %}
+	<a href="/" class="nav-item nav-link active">首頁</a>
+    <a href="/about" class="nav-item nav-link">關於我們</a>
+    <a href="/adopt" class="nav-item nav-link">我要認養</a>
+    <a href="/donate" class="nav-item nav-link">善心捐款</a>
+    <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">更多平台</a>
+        <div class="dropdown-menu m-0">
+            <a href="https://www.savedogs.org/" class="dropdown-item" target="_blank">台灣緊急救援小組</a>
+            <a href="https://www.packtw.org/find-a-dog" class="dropdown-item" target="_blank">台灣巴克幫</a>
+            <a href="https://wepet.tw/" class="dropdown-item" target="_blank">Wepet寵物資訊平台</a>
+            <a href="https://act-adopt.ahiqo.ntpc.gov.tw/" class="dropdown-item" target="_blank">新北市動物保護防疫處</a>
+            <a href="https://asms.coa.gov.tw/AmlApp/App/AnnounceMent.aspx?PageType=Adopt" class="dropdown-item" target="_blank">全國收容系統</a>
+           
+        </div>
+    </div>
+    <a href="/contact" class="nav-item nav-link">聯絡我們</a>
+{% endblock %}
+
+{% block  mainPage %}
+	<div class="banner">
+		<ul class="img">
+			<li><img src="https://apacc.eoffering.org.tw/upload/adver/1.jpg"></li>
+			<li><img src="https://apacc.eoffering.org.tw/upload/adver/2.jpg"></li>
+		</ul>		
+	</div>
+
+
+	<div id="Introduction">
+		<div class="inarea">
+			<div class="intitle">
+				<h2>支持領養代替購買</h2>
+			</div>
+			<div class="incontent">
+				<p>愛護動物不需要任何言語來說服，請在飼養寵物前考慮清楚，請不要隨意棄養</p>
+				<div class="ina">
+					<a href="/adopt">前往認養</a>
+				</div>				
+			</div>
+		</div>
+	</div>
+	<div class="donatearea">
+		<a href="/donate"><img src="https://www.savedogs.org/upload/ckeditor/image/offical2018/HOME.gif"></a>
+	</div>
+{% endblock %}

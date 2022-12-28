@@ -1,0 +1,104 @@
+{% extends 'BasePage.html' %}
+
+{% block Title %}
+認養專區
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/adopt.css')}}">
+{% endblock %}
+
+{% block navbar %}
+	<a href="/" class="nav-item nav-link">首頁</a>
+    <a href="/about" class="nav-item nav-link">關於我們</a>
+    <a href="/adopt" class="nav-item nav-link active">我要認養</a>
+    <a href="/donate" class="nav-item nav-link">善心捐款</a>
+    <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">更多平台</a>
+        <div class="dropdown-menu m-0">
+            <a href="https://www.savedogs.org/" class="dropdown-item" target="_blank">台灣緊急救援小組</a>
+            <a href="https://www.packtw.org/find-a-dog" class="dropdown-item" target="_blank">台灣巴克幫</a>
+            <a href="https://wepet.tw/" class="dropdown-item" target="_blank">Wepet寵物資訊平台</a>
+            <a href="https://act-adopt.ahiqo.ntpc.gov.tw/" class="dropdown-item" target="_blank">新北市動物保護防疫處</a>
+            <a href="https://asms.coa.gov.tw/AmlApp/App/AnnounceMent.aspx?PageType=Adopt" class="dropdown-item" target="_blank">全國收容系統</a>
+           
+        </div>
+    </div>
+    <a href="/contact" class="nav-item nav-link">聯絡我們</a>
+{% endblock %}	
+
+{% block mainPage %}
+	<div class="adoptimg">
+		<div class="imgtext">
+			<h1>領養專區</h1>
+		</div>
+	</div>
+	<div id="search">
+		<span>所在縣市</span>
+		<form class="selectform"action="/adopt" method="get">
+			<select class="select" name="city">
+				<option value="0" selected>所有收容所</option>
+				<option value="新北市">新北市</option>
+				<option value="臺北市">臺北市</option>
+				<option value="宜蘭縣">宜蘭縣</option>
+				<option value="桃園市">桃園市</option>
+				<option value="新竹縣">新竹縣</option>
+				<option value="新竹市">新竹市</option>
+				<option value="苗栗縣">苗栗縣</option>
+				<option value="臺中市">臺中市</option>
+				<option value="彰化縣">彰化縣</option>
+				<option value="南投縣">南投縣</option>
+				<option value="雲林縣">雲林縣</option>
+				<option value="嘉義縣">嘉義縣</option>
+				<option value="高雄市">高雄市</option>
+				<option value="屏東縣">屏東縣</option>
+				<option value="臺東縣">臺東縣</option>
+				<option value="花蓮縣">花蓮縣</option>
+				<option value="澎湖縣">澎湖縣</option>
+				<option value="基隆市">基隆市</option>
+				<option value="新竹市">新竹市</option>
+				<option value="嘉義市">嘉義市</option>
+				<option value="臺南市">臺南市</option>
+				<option value="連江縣">連江縣</option>
+				<option value="金門縣">金門縣</option>
+			</select>
+			<div class="type">
+				<input type="radio" name="typeidname" value="犬">犬
+			</div>
+
+			<div class="type">
+				<input type="radio" name="typeidname" value="貓">貓
+			</div>
+
+			<div class="type">
+				<input type="radio" name="typeidname" value="其他">其他
+			</div>
+			<input type="submit" style="font-size: 20px; float: left; border:1px solid #13C5DD;border-radius: 15px;" value="查詢">
+		</form>
+	</div>
+
+	<div class="adopt">
+		<div class="adoptarea">
+			{% for row in result %}
+			<div class="info">
+				<a href="{{row[4]}}" target="_blank">
+					{% if row[3]|length >50 %}
+						<img src="{{row[3]}}">
+					{% else%}
+						<img src="https://asms.coa.gov.tw/AmlApp/images/defaultSmall.jpg">
+					{% endif %}
+					<span>品種:</span>
+					<span>{{row[0]}}</span>
+					<p></p>
+					<span>性別:</span>
+					<span>{{row[1]}}</span>
+					<p></p>
+					<span>所在地:</span>
+					<span>{{row[2]}}</span>
+					<p></p>
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

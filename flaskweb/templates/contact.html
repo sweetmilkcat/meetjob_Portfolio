@@ -1,0 +1,103 @@
+{% extends 'BasePage.html' %}
+
+{% block Title %}
+聯絡我們
+{% endblock %}
+
+{% block navbar %}
+    <a href="/" class="nav-item nav-link">首頁</a>
+    <a href="/about" class="nav-item nav-link">關於我們</a>
+    <a href="/adopt" class="nav-item nav-link">我要認養</a>
+    <a href="/donate" class="nav-item nav-link">善心捐款</a>
+    <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">更多平台</a>
+        <div class="dropdown-menu m-0">
+            <a href="https://www.savedogs.org/" class="dropdown-item" target="_blank">台灣緊急救援小組</a>
+            <a href="https://www.packtw.org/find-a-dog" class="dropdown-item" target="_blank">台灣巴克幫</a>
+            <a href="https://wepet.tw/" class="dropdown-item" target="_blank">Wepet寵物資訊平台</a>
+            <a href="https://act-adopt.ahiqo.ntpc.gov.tw/" class="dropdown-item" target="_blank">新北市動物保護防疫處</a>
+            <a href="https://asms.coa.gov.tw/AmlApp/App/AnnounceMent.aspx?PageType=Adopt" class="dropdown-item" target="_blank">全國收容系統</a>
+           
+        </div>
+    </div>
+    <a href="/contact" class="nav-item nav-link  active">聯絡我們</a>
+{% endblock %}  
+
+{% block  mainPage %}
+
+	<!-- Contact Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">有問題詢問?</h5>
+                <h1 class="display-4">歡迎聯絡我們</h1>
+            </div>
+            <div class="row g-5 mb-5">
+                <div class="col-lg-4">
+                    <div class="bg-light rounded d-flex flex-column align-items-center justify-content-center text-center" style="height: 200px;">
+                        <div class="d-flex align-items-center justify-content-center bg-primary rounded-circle mb-4" style="width: 100px; height: 70px; transform: rotate(-15deg);">
+                            <i class="fa fa-2x fa-location-arrow text-white" style="transform: rotate(15deg);"></i>
+                        </div>
+                        <h6 class="mb-0">中正區南海路 37 號, 臺北市, 台灣</h6>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="bg-light rounded d-flex flex-column align-items-center justify-content-center text-center" style="height: 200px;">
+                        <div class="d-flex align-items-center justify-content-center bg-primary rounded-circle mb-4" style="width: 100px; height: 70px; transform: rotate(-15deg);">
+                            <i class="fa fa-2x fa-phone text-white" style="transform: rotate(15deg);"></i>
+                        </div>
+                        <h6 class="mb-0">+886-2-2381-2991</h6>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="bg-light rounded d-flex flex-column align-items-center justify-content-center text-center" style="height: 200px;">
+                        <div class="d-flex align-items-center justify-content-center bg-primary rounded-circle mb-4" style="width: 100px; height: 70px; transform: rotate(-15deg);">
+                            <i class="fa fa-2x fa-envelope-open text-white" style="transform: rotate(15deg);"></i>
+                        </div>
+                        <h6 class="mb-0">hotac@hotac.org.tw</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12" style="height: 500px;">
+                    <div class="position-relative h-100">
+                        <iframe class="position-relative w-100 h-100"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.058967312615!2d121.51101131545911!3d25.032072844521682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9a213dc99b9%3A0xb206bb590b778d59!2sNo.%2037%2C%20Nanhai%20Rd%2C%20Zhongzheng%20District%2C%20Taipei%20City%2C%20Taiwan%20100!5e0!3m2!1sen!2sbd!4v1668929844813!5m2!1sen!2sbd"
+                            frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                            tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center position-relative" style="margin-top: -200px; z-index: 1;">
+                <div class="col-lg-8">
+                    <div class="bg-white rounded p-5 m-5 mb-0">
+                        <form class="contact_form" action="/addMessage" method="post">
+                            <div id="message">
+                                <div class="row g-3">
+                                    <div class="col-12 col-sm-6">
+                                        <input name="username" type="text" class="form-control bg-light border-0" placeholder="姓名" style="height: 55px;">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input name="email" type="email" class="form-control bg-light border-0" placeholder="Email" style="height: 55px;">
+                                    </div>
+                                    <div class="col-12">
+                                        <input name="title" type="text" class="form-control bg-light border-0" placeholder="標題" style="height: 55px;">
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea name="content" class="form-control bg-light border-0" rows="5" placeholder="訊息內容"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 py-3" type="submit">送出</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+    
+{% endblock %}
