@@ -16,8 +16,12 @@ def portfolio(request):
         
         if len(title) >0 :
             data = Portfolio.objects.filter(title__contains=title).order_by('-id')
+        elif 'type' in request.GET:
+            typename = request.GET['type']
+            if len(typename) >0:
+                data = Portfolio.objects.filter(title__contains=typename).order_by('-id')
         else:
-            data = Portfolio.objects.filter(title__contains='氣質')[:4]
+            data = Portfolio.objects.all().order_by('id')
     elif 'type' in request.GET:
         typename = request.GET['type']
         if len(typename) >0:
