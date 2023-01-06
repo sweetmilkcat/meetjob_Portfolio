@@ -1,0 +1,131 @@
+.aboutarea{
+    background-image: url(https://twstay.com.tw/nailsalon/img/bg1.jpg);
+    height: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.areatitle{
+    height: 200px;
+    background:rgb(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+.areatitle .txt{
+	font-family: 'Pinyon Script', cursive;
+    color: #FBC6AA;
+    margin: 0;
+    padding: 0;
+    font-size: 60px;
+    line-height: 1.5;
+    text-align: center;
+}
+.areatitle .cht{
+	color: #000;
+	margin: 0;
+    padding: 0;
+    font-size: 50px;
+    font-family: serif;
+    letter-spacing: .05em;
+    font-size: 50px;
+    position: relative;
+    top: -40px;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: center;
+}
+.portfolios{
+    background: url(https://twstay.com.tw/nailsalon/img/bg1.jpg);
+}
+
+.portfolio_Area{
+    width: 80%;
+    margin-left: 20%;
+}
+#isotope-options{
+    display: flex;
+    justify-content: center;
+}
+#isotope-filters{
+    margin:0 !important;
+    background: url() !important;
+    
+}
+#isotope-filters li a{
+    color: #B47157 !important;
+}
+#isotope-filters li a.selected, #isotope-filters li a:hover{
+    background: rgba(244, 239, 227, 0.9) !important;
+    border: 1px solid #FBC6AA;
+    border-radius: 10px;
+}
+.thumb-isotope figure:hover{
+    background: #FBC6AA !important;
+}
+.caption h4,.caption p{
+    color: #000;
+
+}
+.isotope-element{
+    width: 25%;
+    margin-left: 10px;
+}
+#isotope-items.thumbnails > li{
+    width: 22%;
+}
+#portfolio{
+    padding-bottom: 20px;
+}
+#search{
+    float: left; 
+    width: 200px;
+    margin:20px 40px; 
+}
+#keyworkarea{
+    display: flex;
+    align-items: center;
+}
+.keyworkbox{
+    border-radius: 20px !important;
+    padding-left: 10px;
+    color: #ccc;
+    height: 30px !important;
+}
+.type input{
+    width: 80px;
+    float: left;
+    background-color: transparent;
+    margin: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #B47157;
+    display: list-item;
+    text-align-last: justify;
+    border: 1px solid #ccc;
+}
+.pagearea{
+    height: 20px;
+    position: relative;
+    top: -20px;
+}
+.pagearea a{
+    font-size: 20px;
+    color: #B47157;
+}
+#newestArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+.newimg{
+    width: 60%;
+
+}
+.newimg img{
+    width: 30%;
+    margin: 0 10px;
+    border-bottom-right-radius: 10px;
+}

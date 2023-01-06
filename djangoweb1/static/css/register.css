@@ -1,0 +1,48 @@
+.contact_form{
+	width: 40%;
+}
+.chk{
+	width: 80px;
+    float: left;
+}
+#message p{
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+.textinput{
+	width: 300px;
+}
+label{
+    margin: 0;
+}
+label input[type="radio"]{
+    display: none;
+}
+label input[type="radio"]+span{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    border: 2px solid #ccc;
+    vertical-align: sub;
+    margin-right: 5px;
+}
+label input[type="radio"]+span>span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    float: left;
+    background: #B47157;
+    opacity: 0;
+}
+label input[type="radio"]:checked+span{
+    border-color: #B47157;
+}
+label:hover input[type="radio"]+span>span{
+    opacity: 0.5;
+}
+label input[type="radio"]:checked+span>span{
+    opacity: 1;
+}

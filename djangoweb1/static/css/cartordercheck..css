@@ -1,0 +1,12 @@
+th{
+	background:#fff; 
+}
+.orderdata{
+	width: 60%;
+}
+.orderdata p,strong,th,td,tr{
+	color: #000;
+}
+.orderdata th,td,tr{
+	border: 5px double #ccc;
+}

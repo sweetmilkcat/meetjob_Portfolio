@@ -1,0 +1,40 @@
+th{
+	background:#fff;
+}
+.orderdata{
+	width: 60%;
+}
+.orderdata p,th,td,tr{
+	color: #000;
+}
+.orderdata th,td,tr{
+	border: 5px double #ccc;
+}
+.columnname {
+	font-size: 20px;
+	font-weight: bold;
+	color: #B47157;
+}
+.money{
+	color: #B47157;
+	text-align: right;
+	padding-right: 10px;
+}
+.money strong{
+	font-size: 18px;
+	font-weight: bold;
+}
+.textmessag{
+	padding-left: 10px;
+	font-size: 18px;
+}
+.subjectname{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 40px;
+}
+.subject{
+	font-size: 30px;
+	color: #B47157 !important;
+}

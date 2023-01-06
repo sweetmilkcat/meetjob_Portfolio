@@ -1,0 +1,53 @@
+header{
+	background-color: rgb(255,255,255,0.6);
+}
+.logo_wrapper a img{
+	width: 150px;
+    height: 60px;
+}
+.logo_wrapper{
+	padding: 0;
+}
+.navbar_ .nav > li.active > a, .navbar_ .nav > li.active > a:hover, .navbar_ .nav > li.active > a:focus, .navbar_ .nav > li > a:hover, .navbar_ .nav > li > a:focus, .navbar_ .nav > li.sfHover > a, .navbar_ .nav > li.sfHover > a:hover{
+	color: #B47157 !important;
+	border-top-color: #B47157 !important;
+}
+.sub-menu ul{
+	background: url();
+	background-color: rgb(255,255,255,0.6);
+	border-radius: 0 0 10px 10px;
+}
+.thumb1 figure img {
+	height: 200px;
+}
+.sub-menu li a:hover{
+	background: #B47157 !important;
+}
+.navbar_ .nav > li > a {
+	font-weight: bold;
+}
+.sub-menu li a{
+	font-weight: bold;
+}
+#content {
+	background-image: url(https://twstay.com.tw/nailsalon/img/bg.jpg);
+}
+.social li a img{
+	border-radius: 20px;
+}
+.logo_wrapper2{
+	padding: 10px 0 0 0;
+}
+.logo_wrapper2 a img{
+	width: 100px;
+	height: 40px;
+}
+.cartbag{
+	position: absolute;
+    top: 10;
+    right: -200;
+}
+.cartbag img{
+	width: 40px;
+	height: 30px;
+}

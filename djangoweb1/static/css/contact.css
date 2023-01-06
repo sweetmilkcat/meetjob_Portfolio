@@ -1,0 +1,78 @@
+.span12 h1{
+	font-family: auto;
+}
+.contactArea{
+	display: flex;
+    justify-content: center;
+    background-image: url(https://twstay.com.tw/nailsalon/img/bg.jpg);
+}
+
+.pan3{
+	font-size: 12px;
+}
+.conact_method{
+	width: 15%;
+	float: left;
+	margin-left: 1%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+.conact_method .icon{
+	display: flex;
+	justify-content: center;
+}
+.conact_method img{
+	width: 50px;
+	height: 50px;
+}
+.conact_method p{
+	font-size: 20px;
+	margin-top: 10px;
+	font-weight: bold;
+}
+.box_color1{
+	background: rgba(255, 255, 255, 0.9);
+    width: 500px;
+    border: 5px solid #FBC6AA;
+    margin-left: 20%;
+    border-radius: 15px;
+}
+.box_color1 h3{
+	color: #B47157;
+	font-weight:bold; 
+}
+.formcontrol:focus{
+	outline: 4px solid rgba(238,181,225, .3) !important;
+	border:1px solid #c7785a !important;
+}
+.formgroup input,.formgroup textarea{
+	background:#fff;
+	border: 2px solid #FBC6AA;
+	box-shadow:none;
+	width: 100%;
+	font-size: 16px;
+	color: #979790;
+	border-radius: 15px;
+}
+.formgroup input{
+	height: 40px;
+
+}
+.submit{
+	
+}
+.submit_bnt{
+	background-color: #B47157 ;
+	border: 2px solid #B47157 ;
+	border-radius: 15px;
+	color: #fff ;
+	font-weight: bold;
+	width: 100px;
+    height: 50px;
+    font-size: 20px;
+}
+#fields{
+	padding: 0;
+}

@@ -1,0 +1,45 @@
+.orderdata{
+	width: 900px;
+}
+.listcontent{
+	width: 100%;
+	height: 600px;
+	background: #fff;
+}
+.img{
+	width: 50%;
+	height: 100%;
+	float: left;
+	background-image: url(https://twstay.com.tw/nailsalon/img/nail/10.jpg);
+    background-size: cover;
+}
+}
+.img img{
+	width: 100%;
+	height: 100%;
+}
+.listarea{
+	background-image: url(https://twstay.com.tw/nailsalon/img/service-bg.png);
+	background-size: cover;
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+.list{
+	height: 13%;
+	width: 90%;
+	margin-bottom: 10px;
+	margin-left: 40px;
+}
+.list h2{
+	font-family: inherit;
+	color: #B47157;
+	font-size: 25px;
+	font-weight: bold;
+	margin: 0;
+	padding-bottom: 5px;
+}
+.list span{
+	color: #8b8e94;
+	font-size: 18px;
+}

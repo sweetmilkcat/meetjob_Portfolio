@@ -1,0 +1,37 @@
+#maindiv{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.cartOk{
+	width: 500px;
+}
+.checkimg ,.cartoktitle{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.cartoktitle h1{
+	color: #000;
+	font-weight: bold;
+}
+.message{
+	padding-left: 20px;
+}
+.message p{
+	font-size: 24px;
+	line-height: 25px;
+}
+.message .desc strong{
+	color: #B47157;
+	font-style: italic;
+}
+.message .desc a{
+	border:2px solid #B47157;
+	color: #B47157;
+	text-decoration:none;
+}
+.message .desc a:hover{
+	color: #fff;
+	background: #B47157;
+}

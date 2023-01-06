@@ -1,0 +1,78 @@
+/*
+
+	Supersized - Fullscreen Slideshow jQuery Plugin
+	Version : 3.2.7
+	Site	: www.buildinternet.com/project/supersized
+	
+	Theme 	: Shutter 1.2
+	Author	: Sam Dunn
+	Company : One Mighty Roar (www.onemightyroar.com)
+	License : MIT License / GPL License
+	
+*/
+
+	/* Controls Bar
+	----------------------------*/
+	#controls-wrapper { margin:0 auto; height:42px; width:100%; bottom:0px; left:0; z-index:4; background:url(../img/nav-bg.png) repeat-x; position:fixed; }
+		#controls { overflow:hidden; height:100%; position:relative; text-align:left; z-index:5; }
+			#slidecounter { float:left; color:#999; font:14px "Helvetica Neue", Helvetica, Arial, sans-serif; text-shadow:#000 0 -1px 0; margin:0px 10px 0 15px; line-height:42px; }
+			#slidecaption { font-family: 'Open Sans'; font-size: 30px; line-height: 30px; color: #fff; letter-spacing: -1px; padding-left: 30px; padding-top: 80px;}
+			#slidecaption .txt1{font-weight: 300;}
+			#slidecaption .txt2{font-weight: 700; padding-top: 5px;}
+			
+			#navigation { float:right; margin:0px 20px 0 0; }
+				#play-button{ position: absolute;left: 160px; bottom: 52px; z-index: 10; opacity:1;}
+					#play-button:hover{ background-position:0 1px; cursor:pointer; }
+				
+				#prevslide, #nextslide{ position:relative; display: inline-block; z-index: 10; height:21px; width:15px; opacity:1; margin-top: 17px; }
+					#prevslide{ margin-right: 20px; background:url('/static/images/prev.png'); }
+					#nextslide{ margin-left:20px; background:url('/static/images/next.png'); }
+						#prevslide:active, #nextslide:active{ }
+						#prevslide:hover, #nextslide:hover{ cursor:pointer; }
+				
+				ul#slide-list{ position:fixed;display:inline-block; z-index: 99; height: 19px; right: 35px; top: 75px;}
+					ul#slide-list li{ list-style:none; width:19px; height:19px; margin:0px 2px 0; display: inline-block; }
+						ul#slide-list li.current-slide a, ul#slide-list li.current-slide a:hover{ background-position:left; }
+						ul#slide-list li a{ display:block; width:19px; height:19px; background:url('/static/images/pagination.png') no-repeat right top; }
+							ul#slide-list li a:hover{ background-position:left; cursor:pointer; }
+				
+				#tray-button{ width: 39px; height: 39px; position: absolute; left: 85px; bottom: 47px; z-index: 10; }
+					#tray-button:hover{ background-position:0 1px; cursor:pointer; }
+				#tray-button .popup{background: url(/static/images/popup_bg.png); height: 31px; position: absolute; left: -30px; top: -45px; text-decoration: none; font-family: 'lobsterregular'; font-size: 16px; color: #fff; line-height: 31px; padding: 0 15px;}
+				#tray-button .popup span{display: block; width: 16px; height: 8px; background: url(/static/images/corner1.png); position: absolute;left: 50%; margin-left: -8px; top: 31px;}
+		
+	
+	/* Progress Bar
+	----------------------------*/					
+	#progress-back{ z-index:31; position:absolute; bottom:40px; left:0; height:1px; width:100%; background:#000; }
+		#progress-bar{ position:relative; height:100%; width:100%; background:#ff1900; }
+	
+	
+	/* Thumbnail Navigation
+	----------------------------*/	
+	#nextthumb,#prevthumb { z-index:2; display:none; position:fixed; bottom:61px; height:75px; width:100px; overflow:hidden; background:#ddd; border:1px solid #fff; -webkit-box-shadow:0 0 5px #000; }
+		#nextthumb { right:12px; }
+		#prevthumb { left:12px; }
+			#nextthumb img, #prevthumb img { width:150px; height:auto;  }
+			#nextthumb:active, #prevthumb:active { bottom:59px; }
+			#nextthumb:hover, #prevthumb:hover { cursor:pointer; }
+	
+	
+	/* Thumbnail Tray
+	----------------------------*/			
+	#thumb-tray{ position:absolute; z-index:9; bottom:0; left:0; background:url(/static/images/bg-black.png) 0 0 repeat-x; height:250px; width:100%; overflow:hidden; text-align:center; }
+		
+		#thumb-back, #thumb-forward{ position:absolute; z-index:5; top:35px; height:39px; width:39px; }
+			#thumb-back{ left:20px; background: url('/static/images/thumb-back.png') no-repeat center center;}
+			#thumb-forward{ right:20px; background:url('/static/images/thumb-forward.png') no-repeat center center;}
+				#thumb-back:hover, #thumb-forward:hover{ cursor:pointer; }
+					#thumb-back:hover{  }
+					#thumb-forward:hover{  }
+		
+		
+		ul#thumb-list{ display:inline-block; list-style:none; position:relative; left:0px; top: 8px; padding:0 0px; }
+			ul#thumb-list li{ background:#000; list-style:none; display:inline; width:120px; height:80px; overflow:hidden; float:left; margin:0 5px; }
+				ul#thumb-list li img { opacity:0.5; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; filter:alpha(opacity=60); -webkit-transition: all 100ms ease-in-out; -moz-transition: all 100ms ease-in-out; -o-transition: all 100ms ease-in-out; -ms-transition: all 100ms ease-in-out; transition: all 100ms ease-in-out; }
+				ul#thumb-list li.current-thumb img, ul#thumb-list li:hover img{ opacity:1; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter:alpha(opacity=100); }
+				ul#thumb-list li:hover{ cursor:pointer; }
+				

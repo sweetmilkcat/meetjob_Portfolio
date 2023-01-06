@@ -1,0 +1,37 @@
+.subject{
+	text-align: center;
+	color: #B47157;
+	font-weight: bold;
+}
+.intext input{
+	font-size:16px; 
+	text-align: center; 
+	height: 30px; 
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+.tabletitle tr,th{
+	border: 5px double #ccc;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 20px;
+
+}
+.intext input:focus{
+	outline: 4px solid rgba(238,181,225, .3) !important;
+	border:2px solid #c7785a !important;
+}
+label{
+	margin: 0;
+}
+label input[type="radio"]:checked+span{
+    border-color: #B47157;
+}
+label input[type="radio"]+span>span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    float: left;
+    background: #B47157;
+    opacity: 0;
+}

@@ -1,0 +1,23 @@
+.orderdata span{
+	font-size: 18px;
+	color: #ff0000;
+	font-weight: bold;
+}
+.form-group label{
+	font-size: 20px;
+	line-height: 21px;
+}
+.form-group input{
+	height: 30px;
+}
+.form-group button{
+	border: 1px solid #B47157;
+	border-radius: 20px;
+	width: 80px;
+	height: 30px;
+	font-size: 20px;
+}
+.form-group button:hover{
+	background: #B47157;
+	color: #fff;
+}

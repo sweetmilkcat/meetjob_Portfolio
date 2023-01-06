@@ -1,0 +1,118 @@
+.Area{
+	background-image: url(https://twstay.com.tw/nailsalon/img/bg1.jpg);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.itemarea{
+	width: 100%;
+	padding:20px 40px; 
+}
+.sreach{
+	width: 250px;
+	float: left;
+}
+
+.type{
+	list-style: none;
+}
+.type li{
+	color: #000;
+	font-size: 12px;
+}
+.items{
+	width: 80%;
+	float: left;
+	margin-left: 40px;
+}
+.shop_item{
+	width: 250px;
+    height: 420px;
+	float: left;
+	margin-right: 20px;
+}
+.shop_item img{
+	width: 100%;
+	height:280px;
+}
+.titlearea h4{
+	color: #000;
+	font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.titlearea p{
+	color: #000;
+    font-size: 20px;
+    margin: 0;
+    font-weight: 700;
+}
+.shop_item .icon{
+	width: 100%;
+	display: flex;
+    justify-content: end;
+    position: relative;
+    top: -30px;
+}
+.icon img{
+	float: left;
+	width: 30px;
+	height: 30px;
+}
+.titlearea{
+	clear: both;
+}
+
+#keyworkarea{
+	width: 200px;
+	color: #000;
+	font-size: 20px !important;
+    padding: 10px;
+    border: 5px double #ccc;
+}
+.keyworkbox{
+    border-radius: 20px !important;
+    padding-left: 10px;
+    color: #ccc;
+    height: 30px !important;
+}
+.pricebox{
+	width: 80px;
+	height: 30px !important;
+}
+label{
+    display: inline-block;
+    text-align: left;
+    line-height: 26px;
+    font-size: 16px;
+}
+label input[type="radio"]{
+    display: none;
+}
+label input[type="radio"]+span{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    border: 2px solid #ccc;
+    vertical-align: sub;
+    margin-right: 5px;
+}
+label input[type="radio"]+span>span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    float: left;
+    background: #ccc;
+    opacity: 0;
+}
+label input[type="radio"]:checked+span{
+    border-color: #ccc;
+}
+label:hover input[type="radio"]+span>span{
+    opacity: 0.5;
+}
+label input[type="radio"]:checked+span>span{
+    opacity: 1;
+}

@@ -1,0 +1,158 @@
+body{
+	list-style: none;
+}
+#about{
+	
+	height: 2000px;
+	width: 100%;
+}
+.aboutarea{
+	background-image: url(https://twstay.com.tw/nailsalon/img/bg1.jpg);
+	height: 600px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.about_contant{
+	width: 1200px;
+	height: 100%;
+}
+.Introduction{
+	width: 40%;
+	float: left;
+	height: 100%;
+}
+.carousel{
+	width: 500px;
+	float: left;
+	height: 100%;
+	margin-left: 10%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+.abouttitle .abouttxt{
+	font-family: 'Pinyon Script', cursive;
+    color: #FBC6AA;
+    margin: 0;
+    padding: 0;
+    font-size: 60px;
+    line-height: 1.5;
+    text-align: center;
+}
+.abouttitle .about_cht{
+	color: #000;
+	margin: 0;
+    padding: 0;
+    font-size: 50px;
+    font-family: serif;
+    letter-spacing: .05em;
+    font-size: 50px;
+    position: relative;
+    top: -40px;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: center;
+}
+.abouttitle span{
+	color: #ccc;
+	display: block;
+    margin: 0 auto 10px auto;
+    font-weight: 300;
+    text-align: center;
+}
+.Introduction p{
+	color: #000;
+	line-height: 35px;
+	font-size: 16px;
+	text-align: justify;
+	margin-bottom: 20px;
+}
+.banner {
+	width: 500px;
+	height: 500px;
+	margin:0;
+	border:5px solid #F7F3EA;
+	position: relative;
+	overflow: hidden;
+}
+.banner .img{
+	width: 5000px;
+	position: absolute;
+	margin: 0;
+
+}
+.banner .img img{
+	width: 500px;
+	height: 500px;
+}
+.banner .img li{
+	float: left;
+}
+.surrounding{
+	clear: both;
+}
+.settingimg{
+	float: left;
+	width: 16.666%;
+}
+.settingimg img{
+	height: 200px;
+	width: 100%;
+}
+.area{
+	clear: both;
+}
+.areatitle{
+	height: 200px;
+	background:rgb(0,0,0,0.4);
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.manicuristArea{
+	height: 800px;
+	clear: both;
+	width: 80%;
+	background: #F7F3EA;
+	margin-left: 10%;
+}
+.manicurist{
+	width: 25%;
+	margin-left: 3%;
+	padding: 2%;
+	float: left;
+}
+.photo{
+	height: 300px;
+	width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.photo img{
+	height: 100%;
+}
+.descrube{
+	color: #000;
+	width: 80%;
+	padding-left: 12%;
+	float: left;
+}
+hr{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-top: 1px solid #ccc;
+}
+.block p{
+	margin-bottom: 10px;
+    line-height: 20px;
+    font-size: 15px;
+    font-family: monospace;
+}
+.block h3{
+	color: #B47157;
+	text-align: center;
+	padding: 0;
+	margin-bottom: 10px;
+}
