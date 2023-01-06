@@ -1,0 +1,104 @@
+{% extends "BasePage.html" %}
+
+{% block pagetitle %}
+會員註冊
+{% endblock %}
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="/static/css/portfolio.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/cart.css">
+	<link rel="stylesheet" href="/static/css/manage.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/cartorder.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/register.css">
+{% endblock %}
+{% block js %}
+	<script>
+		function checkPwd(){
+			var p = document.getElementsByName("pwd")[0].value;
+			var p2 = document.getElementsByName("repwd")[0].value;
+			if (p == p2){
+				return true;
+			}else{
+				alert("密碼配對有誤，請重新輸入");
+				return false;
+			}
+		}
+	</script>
+{% endblock %}
+
+{% block nav %}
+    <li><a href="/index">首頁</a></li><!--包含活動資訊-->                   
+    <li><a href="/aboutus">關於我們</a></li>     
+    <li class="sub-menu sub-menu-1 "><a href="/nail">服務項目<em></em></a>
+        <ul>
+            <li><a href="/nail">光療美甲</a></li>
+            <li><a href="/shopping">線上購物</a></li>                   
+        </ul>                       
+    </li>               
+    <li><a href="/portfolio">作品集</a></li>                                               
+    <li><a href="/contact">預約美甲</a></li>                                            
+    <!--<li><a href="/question">常見問題</a></li>-->
+    {% if request.session.isAlive %}
+    	<li><a href="/member">會員管理</a></li>
+    	<li><a href="/myorder">訂單查詢</a></li>
+    	<li><a href="/logout">登出</a></li>
+    {% else %}
+    <li class="active"><a href="/login">會員登入</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block mainContent %}
+	<div class="areatitle">
+	    <div class="titlename">
+	        <h1 class="txt">register</h1>
+	        <h3 class="cht">會員註冊</h3>
+	    </div>
+	</div>
+	<div id="maindiv">
+		<div style="display: flex;align-items: center;justify-content: center;">
+	<div id="message">
+		<p class="subject">會員註冊</p>
+		<span>{{msg}}</span>
+		<form class="contact_form" action="" method="post" onsubmit="return checkPwd()"><!--onsubmit="return checkPwd()" 是指在送出的時候去做下面的步驟，如果""中的回傳結果是True時才會送出去-->
+			{% csrf_token %} <!--只要是POST一定要加-->
+			<div class="form-group">
+				<label>姓名</label>
+				<input class="textinput" type="text" name="userName" class="form-control" required />
+			</div>
+			<div class="form-group">
+				<label>Email</label>
+				<input class="textinput" type="email" name="email" class="form-control" required />
+			</div>
+			<div class="form-group">
+				<label>密碼</label>
+				<input class="textinput" type="password" name="pwd" class="form-control" required />
+			</div>
+			<div class="form-group">
+				<label>再確認密碼</label>
+				<input class="textinput" type="password" name="repwd" class="form-control" required />
+			</div>
+			<div class="form-group">
+				<label>性別</label>
+				<label class="chk">
+				<input type="radio" name="sex" value="F" checked /><span><span></span></span>女生
+				</label>
+				<label class="chk">
+				<input type="radio" name="sex" value="M" /><span><span></span></span>男生
+				</label>
+			</div>
+			<div class="form-group">
+				<label style="clear: both;">生日</label>
+				<input class="textinput" type="text" name="birthday" class="form-control" required />
+			</div>
+			<div class="form-group">
+				<label>地址</label>
+				<input class="textinput"  type="text" name="address" class="form-control" required />
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn_submit">註冊</button>
+			</div>
+		</form>
+	</div>
+	</div>
+	</div>
+	
+{% endblock %}

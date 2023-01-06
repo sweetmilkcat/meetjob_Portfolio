@@ -1,0 +1,120 @@
+{% extends "Basepage.html" %}
+{% block pagetitle %}
+作品集
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/static/css/shopping.css">
+{% endblock %}
+
+{% block js %}
+	<script type="text/javascript">
+		$(document).ready(function){
+			
+		}
+	</script>
+{% endblock %}
+
+{% block nav %}
+    <li><a href="/index">首頁</a></li><!--包含活動資訊-->                   
+    <li><a href="/aboutus">關於我們</a></li>     
+    <li class="sub-menu sub-menu-1 active"><a href="/nail">服務項目<em></em></a>
+        <ul>
+            <li><a href="/nail">光療美甲</a></li>
+            <li><a href="/shopping">線上購物</a></li>                   
+        </ul>                       
+    </li>               
+    <li><a href="/portfolio">作品集</a></li>                                               
+    <li><a href="/contact">預約美甲</a></li>                                            
+    <!--<li><a href="/question">常見問題</a></li>-->
+    {% if request.session.isAlive %}
+    	<li><a href="/member">會員管理</a></li>
+    	<li><a href="/myorder">訂單查詢</a></li>
+    	<li><a href="/logout">登出</a></li>
+    {% else %}
+    <li class=""><a href="/login">會員登入</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block mainContent %}
+<div>
+	<div class="Area">
+		<div class="itemarea">
+			<div class="sreach">
+				<form method="get">
+					<div id="keyworkarea">
+						<div>
+							<input class="keyworkbox" type="text" name="p" placeholder="請輸入搜尋名稱"/>
+						</div>
+						<div>
+							價格區間:<p></p>
+							<input class="pricebox" type="text" name="priceS" />~
+							<input class="pricebox" type="text" name="priceE" />
+						</div>
+						<p>--------------------</p>
+						<label>
+							<input type="radio" name="chk" value="組合"><span><span></span></span>精選組合 ♥
+						</label>											
+						<label>
+							<input type="radio" name="chk" value="小小孩"><span><span></span></span>放心玩系列 ♥ 小小孩
+						</label>
+						<label>
+							<input type="radio" name="chk" value="閃亮"><span><span></span></span>亮粉專區 ♥ 大女孩
+						</label>
+						<label>
+							<input type="radio" name="chk" value="花神"><span><span></span></span>2020新色_花神系列
+						</label>
+						<label>
+							<input type="radio" name="chk" value="恆彩"><span><span></span></span>恆彩系列 ♥ 上班族
+						</label>
+						<label>
+							<input type="radio" name="chk" value="定色"><span><span></span></span>防水增亮 ♥ 持久定色
+						</label>
+						<label>
+							<input type="radio" name="chk" value="周邊"><span><span></span></span>指甲護理 & 彩繪周邊
+						</label>
+						<div>
+							<input type="submit" value="查詢" style="font-size: 20px;width: 80px;height: 30px;border: 1px solid #ccc;border-radius: 20px;" />
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="items">	
+				{% for row in allGoods%}			
+				<div class="shop_item">
+					<div class="itemshow">
+						<a href="{{row.link}}">
+							<div class="img">
+								<img src="{{row.photo}}">
+							</div>
+							<div class="titlearea">
+							<h4>{{row.title}}</h4>
+							<p>NT$ {{row.price}} </p>
+							<div class="icon">
+								<img src="/static/images/heart.png">
+								<a class="additem" href="/addtocart/add/{{row.id}}/" value=""><img src="/static/images/shopping-cart.png"></a>
+							</div>						
+						</div>
+					</a>
+					</div>
+					
+				</div>
+				{% endfor %}				
+			</div>
+		</div>
+		<!--<div class="items_show">
+		{% for row in allcart %}
+			<div class="itemcontent">
+				<h5>{{row.0}}</h5>
+				<span>{{row.2}} x NT${{row.3}}</span><a href="/addtocart/remove/{{forloop.counter0}}" class="delcart" onClick="confirmLink('確定刪除此商品嗎?'); return document.returnValue"><img src="/static/images/trash-bin.png"></a>
+				<input type="button" onClick="window.location='/cart/'" value="訂單結帳" />
+			</div>
+		{% endfor %}
+		</div>-->
+	</div>
+
+		
+	
+</div>
+<div style="clear: both;"></div>
+{% endblock %}

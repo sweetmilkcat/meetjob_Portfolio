@@ -1,0 +1,72 @@
+{% extends "BasePage.html" %}
+
+{% block pagetitle %}
+會員登入
+{% endblock %}
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="/static/css/portfolio.css">
+	<link rel="stylesheet" href="/static/css/cart.css">
+	<link rel="stylesheet" href="/static/css/cartordercheck.css">
+	<link rel="stylesheet" href="/static/css/login.css">
+{% endblock %}
+
+{% block nav %}
+    <li><a href="/index">首頁</a></li><!--包含活動資訊-->                   
+    <li><a href="/aboutus">關於我們</a></li>     
+    <li class="sub-menu sub-menu-1"><a href="/nail">服務項目<em></em></a>
+        <ul>
+            <li><a href="/nail">光療美甲</a></li>
+            <li><a href="/shopping">線上購物</a></li>                   
+        </ul>                       
+    </li>               
+    <li><a href="/portfolio">作品集</a></li>                                               
+    <li><a href="/contact">預約美甲</a></li>                                            
+    <!--<li><a href="/question">常見問題</a></li>-->
+    {% if request.session.isAlive %}
+    	<li><a href="/member">會員管理</a></li>
+    	<li><a href="/myorder">訂單查詢</a></li>
+    	<li><a href="/logout">登出</a></li>
+    {% else %}
+    <li class="active"><a href="/login">會員登入</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block mainContent %}
+	<div class="areatitle">
+		<div class="titlename">
+		    <h1 class="txt">login</h1>
+		    <h3 class="cht">會員登入</h3>
+		</div>
+	</div>
+	<div id="maindiv">
+		<div style="display: flex;align-items: center;justify-content: center;">
+		<div style="margin-top: 50px;"></div>
+		<div id="message">		
+		<center><p style="color: #ff0000">{{msg}}</p></center>
+
+		<form action="" method="post" id="form1">
+			{% csrf_token %}
+			<table class="carttable" width="50%" border="0">
+				<tr>
+					<td class="tdsumarea"><label>帳號:</label></td>
+					<td class="intext"><input type="email" name="email" value="{{mymail}}" required placeholder="請輸入Email" /></td>
+				</tr>
+
+				<tr>
+					<td class="tdsumarea"><label>密碼:</label></td>
+					<td class="intext"><input type="password" name="password" required /></td>
+				</tr>
+
+				<tr>
+					<td class="tdsumarea" colspan="2">
+						<button type="submit">登入</button>
+						<a href="/register">註冊</a>
+					</td>
+
+				</tr>
+			</table>		
+		</form>
+		</div>
+		</div>
+	</div>
+{% endblock %}

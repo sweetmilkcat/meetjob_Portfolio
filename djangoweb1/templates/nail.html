@@ -1,0 +1,78 @@
+{% extends "Basepage.html" %}
+{% block pagetitle %}
+作品集
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/static/css/portfolio.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/contact.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/nail.css">
+{% endblock %}
+
+{% block js %}
+{% endblock %}
+
+{% block nav %}
+    <li><a href="/index">首頁</a></li><!--包含活動資訊-->                   
+    <li><a href="/aboutus">關於我們</a></li>     
+    <li class="sub-menu sub-menu-1 active"><a href="/nail">服務項目<em></em></a>
+        <ul>
+            <li><a href="/nail">光療美甲</a></li>
+            <li><a href="/shopping">線上購物</a></li>                   
+        </ul>                       
+    </li>               
+    <li><a href="/portfolio">作品集</a></li>                                               
+    <li><a href="/contact">預約美甲</a></li>                                          
+    <!--<li><a href="/question">常見問題</a></li>--> 
+    {% if request.session.isAlive %}
+        <li><a href="/member">會員管理</a></li>
+        <li><a href="/myorder">訂單查詢</a></li>
+        <li><a href="/logout">登出</a></li>
+    {% else %}
+    <li class=""><a href="/login">會員登入</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block mainContent %}
+    <div class="areatitle">
+        <div class="titlename">
+            <h1 class="txt">Services</h1>
+            <h3 class="cht">服務項目</h3>
+        </div>
+    </div>
+    <div id="maindiv">
+        <div style="display: flex;align-items: center;justify-content: center;">
+        <div class="orderdata">
+            <div class="listcontent">
+                <div class="img"></div>
+                <div class="listarea">
+                    <div class="list">
+                        <h2>Manicure&Pedicure 手足保養</h2>
+                        <span>另有專門為孕婦做的手足保養</span>
+                    </div>
+                    <div class="list">
+                        <h2>Gel Nails 輕薄型光療指甲</h2>
+                        <span>透明光療(clear gel) 、單色光療(single color gel)、漸層光療(gradation gel) 、法式光療(French gel)</span>
+                    </div>
+                    <div class="list" style="height: 8%">
+                        <h2>Gel Removel 光療卸甲</h2>
+                    </div>
+                    <div class="list">
+                        <h2>Other Service 其他服務項目</h2>
+                        <span>指甲修型、光療延甲、敷膜或蜜蠟</span>
+                    </div>
+                    <div class="list">
+                        <h2>美甲教學</h2>
+                        <span>光療基礎班、光療進階班、全科創業班、光療興趣班</span>
+                    </div>
+                    <div class="list">
+                        <h2>Manicure&Pedicure 手足保養</h2>
+                        <span>另有專門為孕婦做的手足保養</span>
+                    </div>
+                </div>
+            </div>           
+        </div>
+    </div>
+</div>
+    <div style="clear: both;"></div>
+{% endblock %}

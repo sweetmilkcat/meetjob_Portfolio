@@ -1,0 +1,63 @@
+{% extends "BasePage.html" %}
+
+{% block pagetitle %}
+會員管理
+{% endblock %}
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="/static/css/portfolio.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/cart.css">
+	<link rel="stylesheet" href="/static/css/cartordercheck.css">
+	<link rel="stylesheet" href="/static/css/manage.css">
+{% endblock %}
+
+{% block nav %}
+    <li><a href="/index">首頁</a></li><!--包含活動資訊-->                   
+    <li><a href="/aboutus">關於我們</a></li>     
+    <li class="sub-menu sub-menu-1"><a href="/nail">服務項目<em></em></a>
+        <ul>
+            <li><a href="/nail">光療美甲</a></li>
+            <li><a href="/shopping">線上購物</a></li>                   
+        </ul>                       
+    </li>               
+    <li><a href="/portfolio">作品集</a></li>                                               
+    <li><a href="/contact">預約美甲</a></li>                                            
+    <!--<li><a href="/question">常見問題</a></li>-->
+    {% if request.session.isAlive %}
+    	<li  class="active"><a href="/member">會員管理</a></li>
+    	<li><a href="/myorder">訂單查詢</a></li>
+    	<li><a href="/logout">登出</a></li>
+    {% else %}
+    <li><a href="/login">會員登入</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block mainContent %}
+	<div class="areatitle">
+	    <div class="titlename">
+	        <h1 class="txt">member</h1>
+	        <h3 class="cht">會員管理</h3>
+	    </div>
+	</div>
+	<div id="maindiv">
+		<div style="display: flex;align-items: center;justify-content: center;">
+		<div class="orderdata">
+			<p class="subject">密碼變更</p>
+			<span>{{msg}}</span>
+			<form class="contact_form" action="" method="post">
+				{% csrf_token %} <!--只要是POST一定要加-->
+				<div class="form-group">
+					<label>舊密碼</label>
+					<input type="password" name="oldpwd" class="form-control" required />
+				</div>
+				<div class="form-group">
+					<label>新密碼</label>
+					<input type="password" name="newpwd" class="form-control" required />
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn_submit">儲存</button>
+				</div>
+			</form>
+		</div>
+		</div>
+	</div>
+{% endblock %}

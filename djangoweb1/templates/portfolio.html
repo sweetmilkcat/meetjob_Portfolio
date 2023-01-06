@@ -1,0 +1,270 @@
+{% extends "Basepage.html" %}
+{% block pagetitle %}
+作品集
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/static/css/portfolio.css">
+    <link rel="stylesheet" href="/static/css/isotope.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/static/css/touchTouch.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="/static/js/touchTouch.jquery.js"></script>
+<script type="text/javascript" src="/static/js/jquery.isotope.min.js"></script>
+<script>
+    $(document).ready(function() {
+    /////// icons
+    //$(".social li").find("a").css({opacity:0.6});
+    $(".social li a").hover(function() {
+        $(this).stop().animate({opacity:0.6 }, 400, 'easeOutExpo');         
+    },function(){
+        $(this).stop().animate({opacity:1 }, 400, 'easeOutExpo' );         
+    }); 
+    $("#isotope-filter0").click(function(){
+        $(".pagearea").show();
+    });
+    $("#isotope-filter1,isotope-filter2,isotope-filter3").click(function(){
+        $(".pagearea").hide();
+    });
+    
+
+}); //
+$(window).load(function() {
+    // isotop
+    var $container = $('#isotope-items'),
+        $optionSet = $('#isotope-options'), 
+        $optionSets = $('#isotope-filters'), 
+        $optionLinks = $optionSets.find('a'); 
+    $container.isotope({ 
+        filter: '.isotope-filter0',
+        layoutMode: 'fitRows'
+    });  
+    $optionLinks.click(function(){ 
+        var $this = $(this); 
+        // don't proceed if already selected 
+        if ( $this.hasClass('selected') ) { 
+            return false; 
+        }           
+        $optionSet.find('.selected').removeClass('selected'); 
+        $this.addClass('selected');
+
+        var selector = $(this).attr('data-filter'); 
+        $container.isotope({ 
+            filter: selector            
+        }); 
+        return false; 
+    });     
+    $(window).on("resize", function( event ) {  
+        $container.isotope('reLayout');     
+    });     
+
+    // touchTouch
+    $('.thumb-isotope .thumbnail a').touchTouch();
+
+});
+
+</script> 	
+{% endblock %}
+{% block nav %}
+    <li><a href="/index">首頁</a></li><!--包含活動資訊-->                   
+    <li><a href="/aboutus">關於我們</a></li>     
+    <li class="sub-menu sub-menu-1"><a href="/nail">服務項目<em></em></a>
+        <ul>
+            <li><a href="/nail">光療美甲</a></li>
+            <li><a href="/shopping">線上購物</a></li>                   
+        </ul>                       
+    </li>               
+    <li  class="active"><a href="/portfolio">作品集</a></li>                                               
+    <li><a href="/contact">預約美甲</a></li>                                            
+    <!--<li><a href="/question">常見問題</a></li>-->
+    {% if request.session.isAlive %}
+        <li><a href="/member">會員管理</a></li>
+        <li><a href="/myorder">訂單查詢</a></li>
+        <li><a href="/logout">登出</a></li>
+    {% else %}
+    <li><a href="/login">會員登入</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block mainContent %}
+<div >
+    <div id="portfolio">
+        <div id="hotimg">
+            <div class="areatitle">
+                <div class="titlename">
+                    <h1 class="txt">Newest</h1>
+                    <h3 class="cht">最新作品</h3>
+                </div>
+            </div>
+
+            <div class="portfolios">
+                <div id="newestArea">
+                    
+                    <div class="newimg">
+                        {% for row in newimg %}
+                        <img src="{{row.photolink}}" alt="{{row.title}}">
+                        {% endfor %}
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="areatitle">
+            <div class="titlename">
+                <h1 class="txt">portfolio</h1>
+                <h3 class="cht">作品集</h3>
+            </div>
+        </div>
+        <div class="portfolios">
+            <div id="search">
+                <div class="keywork_search">
+                    <form action="" id="form1" method="get">                       
+                        <div id="keyworkarea">
+                            <input class="keyworkbox" type="text" name="keyword" placeholder="請輸入搜尋名稱"/>
+                            <input class="keyworksubmit" type="image" img src="https://cc.tvbs.com.tw/portal_production/2022/images/search_btn.svg" onClick="document.form1.submit()" />
+                        </div>
+                        <div class="type">
+                            <input type="submit" name="type" value="聖誕" />
+                            <input type="submit" name="type" value="豎形漸變">
+                            <input type="submit" name="type" value="磨砂" />
+                            <input type="submit" name="type" value="豹紋" />
+                            <input type="submit" name="type" value="簡約" />
+                            <input type="submit" name="type" value="鑽" />
+                            <input type="submit" name="type" value="法式" />
+                            <input type="submit" name="type" value="手繪" />
+                            <input type="submit" name="type" value="日式" />
+                            <input type="submit" name="type" value="韓式" />
+                            <input type="submit" name="type" value="金箔" />
+                            <input type="submit" name="type" value="星月" />
+                            <input type="submit" name="type" value="貝殼" />
+                            <input type="submit" name="type" value="毛衣紋" />
+                            <input type="submit" name="type" value="貓眼" />
+                            <input type="submit" name="type" value="可愛" />
+                            <input type="submit" name="type" value="心形" />
+                            <input type="submit" name="type" value="格紋" />
+                            <input type="submit" name="type" value="線條" />
+                            <input type="submit" name="type" value="波點" />
+                            <input type="submit" name="type" value="水波紋" />
+                            <input type="submit" name="type" value="紅色" />
+                            <input type="submit" name="type" value="黑色" />
+                            <input type="submit" name="type" value="白色" />
+                            <input type="submit" name="type" value="粉色" />
+                            <input type="submit" name="type" value="灰色" />
+                            <input type="submit" name="type" value="新娘" />
+                            <input type="submit" name="type" value="上班族" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="portfolio_Area">
+                <div id="isotope-options">
+                    <ul id="isotope-filters" class="clearfix">
+                        <li><a href="#" id="isotope-filter0" class="selected" data-filter=".isotope-filter0">All</a></li> 
+                        <li><a href="#" id="isotope-filter1" data-filter=".isotope-filter1">上班款</a></li> 
+                        <li><a href="#" id="isotope-filter2" data-filter=".isotope-filter2">新娘款</a></li> 
+                        <li><a href="#" id="isotope-filter3" data-filter=".isotope-filter3">學生款</a></li>             
+                    </ul>            
+                </div>
+                <div class="presetimg">
+                    <ul class="thumbnails" id="isotope-items">
+                    {% for row in photolist %}
+                        <li class="span3 isotope-element  isotope-filter0">
+                            <div class="thumb-isotope">
+                                <div class="thumbnail clearfix">
+                                    <a href="{{row.link}}">
+                                        <figure>
+                                            <img src="{{row.link}}" alt=""><em></em>
+                                        </figure>
+                                    </a>
+                                    <div class="caption">
+                                        <h4>
+                                           {{row.title}}
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}    
+                    {% for row in category1 %}       
+                        <li class="span3 isotope-element isotope-filter1">
+                            <div class="thumb-isotope">
+                                <div class="thumbnail clearfix">
+                                    <a href="{{row.link}}">
+                                        <figure>
+                                            <img src="{{row.link}}" alt=""><em></em>
+                                        </figure>
+                                    </a>
+                                    <div class="caption">
+                                        <h4>
+                                           {{row.title}}
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                      {% endfor %}
+                      {% for row in category2 %}       
+                        <li class="span3 isotope-element isotope-filter2">
+                            <div class="thumb-isotope">
+                                <div class="thumbnail clearfix">
+                                    <a href="{{row.link}}">
+                                        <figure>
+                                            <img src="{{row.link}}" alt=""><em></em>
+                                        </figure>
+                                    </a>
+                                    <div class="caption">
+                                        <h4>
+                                           {{row.title}}
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                      {% endfor %}
+                      {% for row in category3 %}       
+                        <li class="span3 isotope-element isotope-filter3">
+                            <div class="thumb-isotope">
+                                <div class="thumbnail clearfix">
+                                    <a href="{{row.link}}">
+                                        <figure>
+                                            <img src="{{row.link}}" alt=""><em></em>
+                                        </figure>
+                                    </a>
+                                    <div class="caption">
+                                        <h4>
+                                           {{row.title}}
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                      {% endfor %} 
+
+
+
+
+                    </ul>
+                    <div class="pagearea">
+                    <!-- photolist.has_previous 是否還有-->
+                    {% if photolist.has_previous %}
+                        <a class="page" href="?page={{photolist.previous_page_number}}">上一頁</a>
+                    {% endif %}
+                    <!-- photolist.has_next 是否下面還有-->
+                    {% if photolist.has_next %}
+                        <a class="page" href="?page={{photolist.next_page_number}}">下一頁</a>
+                    {% endif %}
+                    </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+    
+    
+
+
+
+{% endblock %}

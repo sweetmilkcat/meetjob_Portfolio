@@ -1,0 +1,61 @@
+{% extends "BasePage.html" %}
+
+{% block pagetitle %}
+我的訂單紀錄
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="/static/css/portfolio.css">
+	<link rel="stylesheet" href="/static/css/cart.css">
+	<link rel="stylesheet" href="/static/css/cartordercheck.css">
+{% endblock %}
+
+{% block nav %}
+    <li><a href="/index">首頁</a></li><!--包含活動資訊-->                   
+    <li><a href="/aboutus">關於我們</a></li>     
+    <li class="sub-menu sub-menu-1"><a href="/nail">服務項目<em></em></a>
+        <ul>
+            <li><a href="/nail">光療美甲</a></li>
+            <li><a href="/shopping">線上購物</a></li>                   
+        </ul>                       
+    </li>               
+    <li><a href="/portfolio">作品集</a></li>                                               
+    <li><a href="/contact">預約美甲</a></li>                                            
+    <!--<li><a href="/question">常見問題</a></li>-->
+    {% if request.session.isAlive %}
+    	<li><a href="/member">會員管理</a></li>
+    	<li class="active"><a href="/myorder">訂單查詢</a></li>
+    	<li><a href="/logout">登出</a></li>
+    {% else %}
+    <li><a href="/login">會員登入</a></li>
+    {% endif %}
+{% endblock %}
+{% block mainContent %}
+	<div class="areatitle">
+		<div class="titlename">
+		    <h1 class="txt">my order</h1>
+		    <h3 class="cht">我的訂單紀錄</h3>
+		</div>
+	</div>
+
+	<div id="maindiv">
+		<div style="display: flex;align-items: center;justify-content: center;">
+			<div class="orderdata">
+				<table width="90%" border="0" align="center" cellpadding="4" cellspacing="1">
+					<tr>
+						<th class="columnname" bgcolor="#ccc">訂單日期</th>
+						<th class="columnname" width="100" bgcolor="#ccc">總額</th>
+						<th class="columnname" width="100" bgcolor="#ccc">付款方式</th>
+					</tr>
+					{% for unit in order%}
+					<tr>
+						<td class="textmessag" align="center">{{unit.create_date}}</td>
+						<td class="textmessag" align="center">{{unit.grandtotal}}</td>
+						<td class="textmessag" align="center">{{unit.paytype}}</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}

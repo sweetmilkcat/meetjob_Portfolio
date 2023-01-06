@@ -1,0 +1,116 @@
+{% extends "Basepage.html" %}
+{% block pagetitle %}
+預約美甲
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="/static/css/contact.css">
+{% endblock %}
+	
+{% block js %}
+
+{% endblock %}
+
+{% block nav %}
+    <li><a href="/index">首頁</a></li><!--包含活動資訊-->                   
+    <li><a href="/aboutus">關於我們</a></li>     
+    <li class="sub-menu sub-menu-1"><a href="/nail">服務項目<em></em></a>
+        <ul>
+            <li><a href="/nail">光療美甲</a></li>
+            <li><a href="/shopping">線上購物</a></li>                   
+        </ul>                       
+    </li>               
+    <li><a href="/portfolio">作品集</a></li>                                               
+    <li class="active"><a href="/contact">預約美甲</a></li>                                            
+    <!--<li><a href="/question">常見問題</a></li>-->
+    {% if request.session.isAlive %}
+    	<li><a href="/member">會員管理</a></li>
+    	<li><a href="/myorder">訂單查詢</a></li>
+    	<li><a href="/logout">登出</a></li>
+    {% else %}
+    <li><a href="/login">會員登入</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block mainContent %}
+<div class="contactArea">
+	<div class="span12">
+
+	<h1>Location </h1>	
+
+	<figure class="google_map">
+	    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.0262864449087!2d120.70633021532662!3d24.135714979863454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d3587648fa3%3A0xff3ebe6430f93d4a!2zNDAx5Y-w5Lit5biC5p2x5Y2A5qiC5qWt6LevNTg46Jmf!5e0!3m2!1szh-TW!2stw!4v1672763165626!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</figure>
+
+	<div class="row">
+		<div class="conact_method">
+			<div>
+				<div class="icon"><img src="/static/images/calendar.png"></div>
+				<p>週日~週一 <br> 10:00~21:00</p>				
+			</div>
+		</div>
+		<div class="conact_method">
+			<div>
+			<div class="icon"><img src="/static/images/facebook.png"></div>
+			<p>Fackebook</p>
+			</div>
+
+		</div>
+		<div class="conact_method">
+			<div>
+			<div class="icon"><img src="/static/images/line.png"></div>
+			<p>Line</p>
+			</div>
+		</div>
+		<div class="conact_method">
+			<div>
+			<div class="icon"><img src="/static/images/phone.png"></div>
+			<p>0909-123-456</p>
+			</div>
+		</div>
+		<div class="conact_method">
+			<div>
+			<div class="icon"><img src="/static/images/instagram.png"></div>
+			<p>mafucyan425</p>
+			</div>
+		</div>
+		<div class="conact_method">
+			<div>
+			<div class="icon"><img src="/static/images/location.png"></div>
+			<p>台中市南屯區樂業路588號</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="box_color1">
+		<h3>留言板</h3>
+		<div id="note"></div>
+
+		<form action="#" method="post">
+	    	{% csrf_token %}
+	    	<div class="formgroup">
+	    		<input type="text" class="formcontrol" name="username" placeholder="Your Name" required>
+	    	</div>
+	    	<div class="formgroup">
+	    		<input type="text" class="formcontrol" name="phone" placeholder="Your Phonenumber" required>
+	    	</div>
+	    	<div class="formgroup">
+	    		<input type="text" class="formcontrol" name="email" placeholder="Your Email" required>
+	    	</div>
+	    	<div class="formgroup">
+	    		<input type="text" class="formcontrol" name="subject" placeholder="Subject">
+	   		</div>
+	    	<div class="formgroup">
+	     		<textarea name="message" id="" cols="30" rows="7" class="formcontrol" placeholder="Message" required></textarea>
+	    	</div>
+	    	<div class="submit">
+	    		<button type="submit" value="送出訊息" class="submit_bnt">送出訊息</button>
+    		</div>
+    	</form>
+
+	</div>
+
+
+	</div>
+</div>
+{% endblock %}

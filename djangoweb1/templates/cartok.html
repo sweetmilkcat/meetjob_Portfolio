@@ -1,0 +1,55 @@
+{% extends "Basepage.html" %}
+{% block pagetitle %}
+訂單完成
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/static/css/cart.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/cartok.css">
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
+
+{% block nav %}
+    <li><a href="/index">首頁</a></li><!--包含活動資訊-->                   
+    <li><a href="/aboutus">關於我們</a></li>     
+    <li class="sub-menu sub-menu-1 active"><a href="/nail">服務項目<em></em></a>
+        <ul>
+            <li><a href="/nail">光療美甲</a></li>
+            <li><a href="/shopping">線上購物</a></li>                   
+        </ul>                       
+    </li>               
+    <li><a href="/portfolio">作品集</a></li>                                               
+    <li><a href="/contact">預約美甲</a></li>                                            
+   <!--<li><a href="/question">常見問題</a></li>-->
+    {% if request.session.isAlive %}
+        <li><a href="/member">會員管理</a></li>
+        <li><a href="/myorder">訂單查詢</a></li>
+        <li><a href="/logout">登出</a></li>
+    {% else %}
+    <li class=""><a href="/login">會員登入</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block mainContent %}
+	<div style="margin-top: 50px;"></div>
+
+	<div id="maindiv">
+        <div class="cartOk">
+            <div class="checkimg">
+                <img src="/static/images/check.png">
+            </div>
+            <div class="cartoktitle">
+                <h1 class="title"><img src="/static/images/star (1).png"> 訂單完成資訊</h1>
+            </div>
+            <div class="message">
+                <p class="subject">非常感謝您的購買，我們會盡快處理您的訂單</p>
+                <p class="desc">親愛的<strong>{{name}}</strong>(先生/小姐)，訂單已完成</p>
+                <p class="desc"><a href="/cartordercheck/?orderid={{orderid}}&customemail={{email}}">訂單詳細內容</a></p>
+            </div>
+            
+        </div>	
+	</div>
+{% endblock %}

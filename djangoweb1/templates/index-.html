@@ -1,0 +1,69 @@
+{% extends "Basepage.html" %}
+{% block pagetitle %}
+首頁
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="/static/css/">
+{% endblock %}
+
+{% block js %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#demo1').click(function() {
+			  sweetAlert('Hello World!');
+			});
+		});
+	</script>
+{% endblock %}	
+
+{% block maintop %}
+	<div id="toparea">
+		<h1> Welcome to ShanNail</h1>
+	</div>	
+{% endblock %}
+
+{% block mainContent %}
+<div id="content">
+<div class="container">
+<div class="row">
+<div class="span12">
+
+<div class="banners">
+<div class="row">
+<div class="span4">
+	<div class="thumb1">
+		
+		<div class="thumbnail clearfix">
+			<figure class="img-polaroid"><img src="https://twstay.com.tw/nailsalon/img/store/2.jpg" alt=""></figure>
+			<div class="caption">
+				<p>
+					台中美甲N&S取名是由兩位老闆的英文字母開頭結合而成，也是Nail and beauty salon 的縮寫，我們提供專門的孕婦手足保養、光療凝膠、新娘指甲彩繪。 
+				</p>
+				<div class="text-right"><a href="#" class="button1">更多關於我們</a></div>
+			</div>
+		</div>
+
+	</div>
+</div>
+{% for row in actdata %}
+<div class="span4 banner banner1">
+	<div class="txt1">{{row.title}}</div>
+	<div class="txt2">
+		<p class="upper">
+			<span>{{row.activity_starts}}~{{row.activity_end}}</span> 
+		</p>
+		<p>
+			{{row.content}}
+		</p>
+		<a href="#" class="button0">more</a>
+		<button id="button1">demo 1</button>
+	</div>
+</div>
+{% endfor %}
+</div>	
+</div>	
+
+{% endblock %}

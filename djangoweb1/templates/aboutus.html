@@ -1,0 +1,223 @@
+{% extends "Basepage.html" %}
+{% block pagetitle %}
+關於我們
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="/static/css/aboutus.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+{% endblock %}
+	
+{% block js %}
+	<script>
+		$(document).ready(function(){
+			var i=0;
+			var clone =$(".carousel .banner .img li").first().clone(); //複製第一張圖片
+			$(".carousel .banner .img").append(clone); //將複製的第一張貼到最後面去
+
+			var size=$(".carousel .banner .img li").size(); //抓個數
+			/*自動撥放*/
+			//setInterval 會不斷地呼叫函數 , 2秒呼叫一次
+			var t=setInterval(function(){
+				i++;
+				move();
+			},2000); //2000毫秒=2秒撥一次
+
+			function move(){
+				if (i== size){
+					$(".carousel .banner .img").css({left:0});
+					i=1;
+				}
+				if (i==-1){
+					$(".carousel .banner .img").css({left:-(size -1)*500});
+					i=size -2;
+				}
+				$(".carousel .banner .img").stop().animate({left:-i *500},500); //animate 動畫  往左邊拉500px過去,會隨著i改變而越拉越多
+			}
+		});
+	</script>
+{% endblock %}
+
+{% block nav %}
+    <li><a href="/index">首頁</a></li><!--包含活動資訊-->                   
+    <li class="active"><a href="/aboutus">關於我們</a></li>     
+    <li class="sub-menu sub-menu-1"><a href="/nail">服務項目<em></em></a>
+        <ul>
+            <li><a href="/nail">光療美甲</a></li>
+            <li><a href="/shopping">線上購物</a></li>                   
+        </ul>                       
+    </li>               
+    <li><a href="/portfolio">作品集</a></li>                                               
+    <li><a href="/contact">預約美甲</a></li>                                            
+    <!--<li><a href="/question">常見問題</a></li>-->
+    {% if request.session.isAlive %}
+    	<li><a href="/member">會員管理</a></li>
+    	<li><a href="/myorder">訂單查詢</a></li>
+    	<li><a href="/logout">登出</a></li>
+    {% else %}
+    <li><a href="/login">會員登入</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block mainContent %}
+<div>
+	<div id="about">
+		<div class="aboutarea">
+			<div class="about_contant">
+				<div class="Introduction">
+					<div class="abouttitle">
+						<h1 class="abouttxt">About</h1>
+						<h3 class="about_cht">關於N&S</h3>
+						<span>* * *</span>
+					</div>
+					<p>台中美甲N&S取名是由兩位老闆的英文字母開頭結合而成，也是Nail and beauty salon 的縮寫，我們提供專門的孕婦手足保養、光療凝膠、新娘指甲彩繪，在不久的將來還會加入紋繡、美睫、做臉.....希望打造一條龍的頂級服務讓光臨本店的客人賓至如歸。我們不喜歡繁冗的商業模式、不喜歡強迫的推銷、只想把最有溫度的人情味透過在客人指尖上的變化與在保養的過程中傳遞給每一位對我們來說都是重要的賓客，也許我們沒有華麗的廣告、沒有強而有力的後盾，但是這份對美的熱忱，希望賓客們都能用心感受到！台中美甲N&S美甲美學概念店歡迎您！</p>
+				</div>
+				<div class="carousel">
+					<div class="banner">
+
+						<ul class="img">
+							<li><img src="https://twstay.com.tw/nailsalon/img/about-img1.jpg"></li>
+							<li><img src="https://twstay.com.tw/nailsalon/img/about-img2.jpg"></li>
+							<li><img src="https://twstay.com.tw/nailsalon/img/about-img3.jpg"></li>
+						</ul>
+					</div>
+					<div class="imgbtn">
+						
+					</div>
+				</div>
+			</div>			
+		</div>
+		<div id="surrounding">
+			<div class="settingimg">
+				<img src="https://twstay.com.tw/nailsalon/img/store/1.jpg">
+			</div>
+			<div class="settingimg">
+				<img src="https://twstay.com.tw/nailsalon/img/store/2.jpg">
+			</div>
+			<div class="settingimg">
+				<img src="https://twstay.com.tw/nailsalon/img/store/3.jpg">
+			</div>
+			<div class="settingimg">
+				<img src="https://twstay.com.tw/nailsalon/img/store/4.jpg">
+			</div>
+			<div class="settingimg">
+				<img src="https://twstay.com.tw/nailsalon/img/store/5.jpg">
+			</div>
+			<div class="settingimg">
+				<img src="https://twstay.com.tw/nailsalon/img/store/6.jpg">
+			</div>
+			<div class="settingimg">
+				<img src="https://twstay.com.tw/nailsalon/img/store/7.jpg">
+			</div>
+			<div class="settingimg">
+				<img src="https://twstay.com.tw/nailsalon/img/store/8.jpg">
+			</div>
+			<div class="settingimg">
+				<img src="https://twstay.com.tw/nailsalon/img/store/9.jpg">
+			</div>
+			<div class="settingimg">
+				<img src="https://twstay.com.tw/nailsalon/img/store/10.jpg">
+			</div>
+			<div class="settingimg">
+				<img src="https://twstay.com.tw/nailsalon/img/store/11.jpg">
+			</div>
+			<div class="settingimg">
+				<img src="https://twstay.com.tw/nailsalon/img/store/12.jpg">
+			</div>			
+		</div>
+		<div class="area">
+			<div class="areatitle">
+				<div class="abouttitle">
+					<h1 class="abouttxt">manicurist</h1>
+					<h3 class="about_cht">美甲師介紹</h3>
+				</div>
+			</div>
+			<div class="manicuristArea">
+				<div class="manicurist">
+					<div class="photo">
+						<img src="https://www.cynthianailshh.com.tw/img/team_08.jpg">
+					</div>
+					<div class="descrube">
+						<div class="block">
+							<h3>Helen</h3>
+							<p>熱情大方、幽默但不八卦海派的個性隨時都在關心客人肚子餓不餓</p>
+						</div>
+						<hr>
+						<div class="block">
+							<p>
+								2009TNA2級檢定通過<br>
+								2016TNA1級檢定通過<br>
+								2018GNA一級美甲師通過<br>
+								2018GNA美甲技能檢定評審<br>
+								2018Presto 講師考核通過<br>
+								2019Presto 認證講師 國內外各大名師研習<br>
+							</p>
+						</div>
+						<hr>
+						<div class="block">
+							<p>接觸美甲行業近9年<br>
+							擅長：現場手繪、大理石、貼鑽設計、個性華麗</p>
+							<p>設計理念：</p>
+							<p>隨時關注最新流行時尚重點，從客人身上尋找專屬於客人本身的風格特色打造最獨特的指尖時尚</p>
+						</div>
+					</div>
+				</div>
+				<div class="manicurist">
+					<div class="photo">
+						<img src="https://www.cynthianailshh.com.tw/img/team_07.jpg">
+					</div>
+					<div class="descrube">
+						<div class="block">
+							<h3>蔡靜惠 HuiHui</h3>
+							<p>個性活潑、開朗，馬上就可以跟客人打成一片的隨和個性讓客人服務一次印象深刻</p>
+						</div>
+						<hr>
+						<div class="block">
+							<p>
+								水晶指甲基礎班合格證書<br>
+								GNA三級美甲師檢定證照檢定合格<br>
+								2019NGC榮耀盃國際美業技能競賽優勝獎<br>
+								TNA二級美甲檢定合格<br>
+								日本Presto認證講師<br>
+							</p>
+						</div>
+						<hr>
+						<div class="block">
+							<p>擔任美甲師工作經歷共4年<br>
+							擅長:小清新風、簡約俏皮風、卡通彩繪</p>
+							<p>設計理念：</p>
+							<p>堅持將最好的品質呈現給每位客人，傾聽客人的需求、了解客人指甲狀況、專注每個環節，並給予意見及參考，是我尢身為美甲師的本質，讓每位相信Hui Hui美甲師的客人，都能帶上美美的指甲</p>
+						</div>
+					</div>
+				</div>
+				<div class="manicurist">
+					<div class="photo">
+						<img src="https://www.cynthianailshh.com.tw/img/team_04.jpg">
+					</div>
+					<div class="descrube">
+						<div class="block">
+							<h3>陳映彤 Tong</h3>
+							<p>溫柔親切、笑容可掬，讓客人感覺舒服自在</p>
+						</div>
+						<hr>
+						<div class="block">
+							<p>
+								
+							</p>
+						</div>
+						<hr>
+						<div class="block">
+							<p>接觸美甲行業2年<br>
+							擅長：彩繪、小清新風</p>
+							<p>設計理念：</p>
+							<p>用心傾聽每位顧客的喜好及需求，給予適當的建議，細心注意每個小細節，希望讓每位顧客做完指甲都能擁有愉悅的心情</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+
+</div>	
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends "Basepage.html" %}
+{% block pagetitle %}
+我的購物車
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/static/css/portfolio.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/cart.css">
+{% endblock %}
+
+{% block js %}
+    <script>
+    function confirmLink(message){
+        document.returnValue =confirm(message);
+    }
+    </script>
+{% endblock %}
+
+{% block nav %}
+    <li><a href="/index">首頁</a></li><!--包含活動資訊-->                   
+    <li><a href="/aboutus">關於我們</a></li>     
+    <li class="sub-menu sub-menu-1 active"><a href="/nail">服務項目<em></em></a>
+        <ul>
+            <li><a href="/nail">光療美甲</a></li>
+            <li><a href="/shopping">線上購物</a></li>                   
+        </ul>                       
+    </li>               
+    <li><a href="/portfolio">作品集</a></li>                                               
+    <li><a href="/contact">預約美甲</a></li>                                            
+    <!--<li><a href="/question">常見問題</a></li>-->
+    {% if request.session.isAlive %}
+        <li><a href="/member">會員管理</a></li>
+        <li><a href="/myorder">訂單查詢</a></li>
+        <li><a href="/logout">登出</a></li>
+    {% else %}
+    <li class=""><a href="/login">會員登入</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block mainContent %}
+<div class="areatitle">
+    <div class="titlename">
+        <h1 class="txt">cart</h1>
+        <h3 class="cht">購物車內容</h3>
+    </div>
+</div>
+<div id="maindiv">
+    <form action="/addtocart/update/" method="post" name="form1" id="form1">
+        {% csrf_token %}
+        <table class="carttable" width="100%" border="0" align="center" cellpadding="4" cellspacing="0">
+            <tr class="tabletitle">
+                <th width="60" align="center"><strong>取消</strong>
+                <th align="left"><strong>商品名稱</strong></th>
+                <th width="80" align="center"><strong>單價</strong></th>
+                <th width="80" align="center"><strong>數量</strong></th>
+                <th width="100" align="center"><strong>金額</strong></th>
+            </tr>
+            {% for unit in allcart %}
+            <!--
+                forloop變量及屬性
+                forloop.counter 由1開始遞增到總數為止
+                forloop.counter0 由0開始遞增到總數為止
+                forloop.revcounter 由串列的總數開始遞減到1
+                forloop.revcounter0 由串列的總數開始遞減到0
+
+                forloop.first 判斷是否是第一次for迴圈，回覆值為:True 或 False
+                forloop.last 判斷是否是最後一次for迴圈，回覆值為 :True 或 False
+            -->
+                <tr>
+                    <td class="delettd"><a href="/addtocart/remove/{{forloop.counter0}}" class="delcart" onClick="confirmLink('確定刪除此商品嗎?'); return document.returnValue">刪除</a></td>
+                    <td align="left">{{unit.0}}</td>
+                    <td width="80" align="center">${{unit.1}}</td>
+                    <td class="updatenum" width="80" align="center"><input style="font-size:16px; text-align: center; height: 30px; padding: 0;margin: 0;opacity: 1;" type="text" name="qty{{forloop.counter0}}" id="qty{{forloop.counter0}}" value="{{unit.2}}" size="2" /></td>
+                    <!--qty是自訂的變數 forloop.counter0 當forloop有三個值時，從0開始遞增 ，如上就是qty1、qty2、qty3-->
+                    <td width="100" align="center"><strong>${{unit.3}}</strong></td>
+                </tr>
+            {% endfor%}
+
+            <tr>
+                <td class="tdsumarea" colspan="4" align="left" becolor="#ffffff" class="upline"><strong>小計</strong></td>
+                <td align="center" class="upline">${{total}}</td>    
+            </tr>
+
+            <tr>
+                <td class="tdsumarea" colspan="4" align="left" becolor="#ffffff" class="upline"><strong>運費</strong></td>
+                <td align="center" class="upline">$60</td> 
+            </tr>
+
+            <tr>
+                <td class="tdsumarea" colspan="4" align="left" becolor="#ffffff" class="upline"><strong>總計</strong></td>
+                <td align="center" class="upline"><strong><font size="5">{{grandtotal}}</font></strong></td>  
+            </tr>
+        </table>
+
+        <table style="margin-right: 20px;" class="cartbnt" border="0" align="center" cellpadding="10" cellspacing="0">
+            <tr>
+                <td><input type="button" name="Continue" value="繼續購物" onClick="window.location='/shopping'" /></td>
+                <!--submit =送出-->
+                <td><input type="submit" name="Submit" value="更新購物車" /></td>
+                <td><input type="button" name="Empty" onClick="window.location='/addtocart/empty/' " value="清空購物車" /></td>
+                <td><input type="button" name="Order" onClick="window.location='/cartorder/'" value="我要結帳" /></td>
+
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}
