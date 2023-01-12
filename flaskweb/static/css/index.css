@@ -1,0 +1,65 @@
+.banner{
+	width: 1100px;
+	height: 320px;
+	margin:0 auto;
+    position: relative;
+    overflow: hidden;
+}
+.banner .img{
+	width: 5000px;
+	position: absolute;
+	top: 0px;
+	margin: 0;
+	padding: 0;
+}
+.banner .img img{
+	height: 320px;
+	width: 1100px;
+}
+.banner .img li{
+	float: left;
+	list-style: none;
+}
+#Introduction{
+	width: 100%;
+	height: 400px;
+	background-image: url(https://www.apatw.org/sites/default/files/styles/custom_1060xauto/public/field_kv/project/adopt-2.jpg?itok=Zd_CtvcO);
+	background-color:rgb(0,0,0, .6);
+	background-position: 0 -130;
+    background-size: cover;
+    background-blend-mode: multiply;
+    color: #ffffff;
+    padding: 150 30%;
+}
+.intitle h2{
+	text-align: center;
+    color: #fff;
+    font-size: 40px;
+}
+.incontent{
+	text-align: center;
+    font-size: 24px;
+
+}
+.ina{
+	width: 150px;
+	height: 50px;
+	background-color: #13C5DD;
+	margin: 0 auto;
+	border:3px solid #fff;
+	border-radius: 25px;
+}
+.ina a{
+	color: #fff;
+	font-weight: bold;
+    font-size: 28px;
+}
+.donatearea{
+	margin:0 auto;
+	height:359px; 
+	width: 100%;
+}
+.donatearea img{
+	display: block;
+    margin: 0 auto;
+}

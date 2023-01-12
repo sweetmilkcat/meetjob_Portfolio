@@ -1,0 +1,17 @@
+#imgarea{
+	height: 640px;
+    margin: 20px;
+}
+.image{
+	width: 25%;
+	float: left;
+	margin: 20 0;
+}
+.image img{
+	width: 300px;
+	margin: 0 auto;
+    height: 300px;
+    border: 1px solid;
+    border-radius: 250px;
+    display: flex;
+}
